@@ -36,6 +36,7 @@ treesitter.setup({
 		"ocaml",
 		"python",
 		"rust",
+		"toml",
 	},
 	-- auto install above language parsers
 	auto_install = true,
