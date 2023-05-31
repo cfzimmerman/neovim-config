@@ -6,6 +6,7 @@ local keymap = vim.keymap -- for conciseness
 keymap.set("i", "jk", "<ESC>") -- exit insert mode
 keymap.set("n", "<leader>nh", ":nohl<CR>") -- clear search history after enter
 keymap.set("n", "x", '"_x') -- deletes a character without copying it to register
+keymap.set("n", "<C-f>", "<C-f>zz") -- center cursor when half-paging
 keymap.set("n", "<leader>+", "<C-a>") -- increment number
 keymap.set("n", "<leader>-", "<C-x>") -- decrement number
 
