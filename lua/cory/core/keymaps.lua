@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
 
-local keymap = vim.keymap -- for conciseness
+local keymap = vim.keymap
 
 -- general keymaps
 keymap.set("i", "jk", "<ESC>") -- exit insert mode
