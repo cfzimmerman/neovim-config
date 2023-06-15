@@ -13,6 +13,7 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 -- configure null_ls
 null_ls.setup({
+	debug = true,
 	-- setup formatters & linters
 	sources = {
 		--  to disable file types use
@@ -28,6 +29,7 @@ null_ls.setup({
 		}),
 	},
 	-- configure format on save
+
 	on_attach = function(current_client, bufnr)
 		if current_client.supports_method("textDocument/formatting") then
 			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
@@ -36,10 +38,10 @@ null_ls.setup({
 				buffer = bufnr,
 				callback = function()
 					vim.lsp.buf.format({
-						filter = function(client)
-							--  only use null-ls for formatting instead of lsp server
-							return client.name == "null-ls"
-						end,
+						--						filter = function(client)
+						--							--  only use null-ls for formatting instead of lsp server
+						--							return client.name == "null-ls"
+						--						end,
 						bufnr = bufnr,
 					})
 				end,
