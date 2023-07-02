@@ -16,9 +16,9 @@ if not typescript_setup then
 	return
 end
 
-local keymap = vim.keymap -- for conciseness
+local keymap = vim.keymap
 
--- enable keybinds only for when lsp server available
+-- enable keybinds only when lsp server available
 local on_attach = function(client, bufnr)
 	-- keybind options
 	local opts = { noremap = true, silent = true, buffer = bufnr }
@@ -48,8 +48,7 @@ end
 -- used to enable autocompletion (assign to every lsp server config)
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
--- Change the Diagnostic symbols in the sign column (gutter)
--- (not in youtube nvim video)
+-- Change the Diagnostic symbols in the sign column
 local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
@@ -109,6 +108,12 @@ lspconfig["ocamllsp"].setup({
 
 -- configure Python server
 lspconfig["pylsp"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+-- configure Python server
+lspconfig["gopls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
