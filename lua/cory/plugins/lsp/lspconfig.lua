@@ -112,6 +112,12 @@ lspconfig["pylsp"].setup({
 	on_attach = on_attach,
 })
 
+-- configure Protobuf server
+lspconfig["protolint"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 -- configure Python server
 lspconfig["gopls"].setup({
 	capabilities = capabilities,
