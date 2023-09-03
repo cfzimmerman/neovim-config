@@ -56,10 +56,14 @@ for type, icon in pairs(signs) do
 end
 
 -- configure C++ server
--- lspconfig["clangd"].setup({
---	capabilities = capabilities,
---	on_attach = on_attach,
--- })
+lspconfig["clangd"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	cmd = {
+		"clangd",
+		"--offset-encoding=utf-16",
+	},
+})
 
 -- configure CSS server
 lspconfig["cssls"].setup({
