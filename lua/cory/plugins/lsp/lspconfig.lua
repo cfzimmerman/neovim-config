@@ -128,6 +128,12 @@ lspconfig["rust_analyzer"].setup({
 	on_attach = on_attach,
 })
 
+-- configure Assembly server
+lspconfig["asm_lsp"].setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
 -- configure TypeScript server with plugin
 typescript.setup({
 	server = {
